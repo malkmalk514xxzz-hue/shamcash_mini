@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شام كاش ميني</title>
+<style>
+body{background:#000;color:#fff;text-align:center;font-family:tahoma;padding:20px}
+h1{color:#00FF88}
+#rasid{color:#00FF88;font-size:32px;margin:25px;font-weight:bold}
+button{background:#00FF88;color:#000;border:none;padding:18px 35px;font-size:18px;border-radius:12px;margin:12px;cursor:pointer;width:80%;max-width:300px;font-weight:bold}
+button:active{transform:scale(0.95)}
+#banner{position:fixed;bottom:0;width:100%;left:0}
+</style>
+<!-- كود AdMob -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>شام كاش ميني</h1>
+<div id="rasid">الرصيد الحر: 0 $</div>
+
+<button onclick="showRewardAd()">شاهد إعلان +100 نقطة</button>
+<button onclick="sahb()">سحب الأرباح</button>
+
+<!-- بانر تحت -->
+<div id="banner">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-app-pub-XXXXXXXXXXXXXXXX"
+     data-ad-slot="YYYYYY"
+     data-ad-format="auto"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<script>
+// 1. تحميل الرصيد من الجهاز
+let rasid = parseInt(localStorage.getItem('rasid')) || 0;
+document.getElementById('rasid').innerText = 'الرصيد الحر: ' + rasid + ' $';
+
+// 2. دالة إعلان مكافأة
+function showRewardAd(){
+  alert('هون رح يطلع إعلان فيديو 30 ثانية');
+  // بعد ما يخلص الإعلان بنعطي 100
+  rasid = rasid + 100;
+  localStorage.setItem('rasid', rasid);
+  document.getElementById('rasid').innerText = 'الرصيد الحر: ' + rasid + ' $';
+  alert('مبروك! تم إضافة 100 نقطة');
+}
+
+// 3. دالة السحب
+function sahb(){
+  if(rasid >= 5000){
+    alert('ممتاز! رصيدك ' + rasid + ' $. تواصل واتساب للسحب');
+  } else {
+    alert('بدك 5000 نقطة عشان تسحب. رصيدك هلق: ' + rasid);
+  }
+}
+</script>
+</body>
+</html>
